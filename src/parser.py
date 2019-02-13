@@ -8,14 +8,15 @@ class Parser:
     def get_text(self, text):
         if text == 'n' or text == 'N':
             return "You go north"
+
         elif text == 's' or text == 'S':
-            return "You go south"
+            return "s"
         elif text == 'w' or text == 'W':
-            return "You go West"
+            return "w"
         elif text == 'e' or text == 'E':
-            return "You go East"
+            return "e"
         elif text == 'l' or text == 'L':
-            return "You look around the room"
+            return "l"
         elif text == 'q' or text == 'Q':
             return False
         else:
