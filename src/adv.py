@@ -54,7 +54,7 @@ parse_text.get_text('n')
 
 while parse_text.get_text is not False:
     command = input(">> ")
-    parse_text.get_text(command)
+    print(parse_text.get_text(command))
 
 #
 # * Prints the current room name

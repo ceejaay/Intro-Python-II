@@ -1,8 +1,5 @@
 
 class Parser:
-    def __init__(self):
-        self.name = 'Dungeon Master'
-
 
     def error_response(self):
         print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q/q")
