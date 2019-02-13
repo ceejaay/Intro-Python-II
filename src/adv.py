@@ -1,6 +1,7 @@
 from room import Room
-
+from player import Player
 # Declare all the rooms
+
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -21,6 +22,11 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+p = Player(room['outside'])
+
+# r = room('hell', 'dark, scary') 
+# r.print_location()
+room['outside'].print_location()
 
 # Link rooms together
 
