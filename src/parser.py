@@ -7,15 +7,15 @@ class Parser:
     def error_response(self):
         print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q/q")
 
-    def check_room(self, room):
-        if type(room) is Room:
+    def check_room(self, room, direction):
+        if hasattr(room, direction):
             return True
         else:
             return False
 
     def get_text(self, text):
         if text == 'n' or text == 'N':
-            if self.check_room(self.player.room.n_to):
+            if self.check_room(self.player.room, 'n_to'):
                 self.player.room.n_to
                 self.player.room = self.player.room.n_to
                 print(f"You are in {self.player.room.location}, {self.player.room.desc}")
