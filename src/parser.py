@@ -17,10 +17,13 @@ class Parser:
         first_word = command[0]
         second_word = command[1]
         if first_word == 'get':
-            if second_word in self.player.room.list_of_items:
-                player.get(second_word)
-            else:
-                print(f"There is no {second_word} here.")
+            for item in self.player.room.list_of_items:
+                if item.name == second_word:
+                    self.player.get(second_word)
+                # if item.name == second_word:
+                #    self.player.get(second_word)
+                # else:
+                #     print(f"There is no {second_word} here.")
         else:
             self.error_response()
 
