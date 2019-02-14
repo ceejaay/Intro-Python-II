@@ -3,15 +3,30 @@ from room import Room
 class Parser:
     def __init__(self, player):
         self.player = player
+        self.user_input = ""
+        self.text = None
+        self.message = ""
+        self.directions = ('n', 's', 'e', 'w',)
+        self.keywords = ('look', 'get', 'help',)
+        self.playing = True
+
+
+
+
+    def execute_command(self, command):
+        print("you are trying to pick something up.")
+        # if command == 'get':
+        #     self.player.get()
 
     def error_response(self):
-        print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q/q")
+        print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q")
 
     def check_room(self, room, direction):
         if hasattr(room, direction):
             return True
         else:
             return False
+
 
     def get_text(self, text):
         if text == 'n' or text == 'N':
@@ -47,7 +62,8 @@ class Parser:
         elif text == 'l' or text == 'L':
             print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
         elif text == 'q' or text == 'Q':
-            return False
+            print('Thanks for playing')
+            self.playing = False
         else:
             self.error_response()
 

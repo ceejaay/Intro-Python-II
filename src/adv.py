@@ -9,15 +9,14 @@ from data import room
 # intitialize the items in rooms
 # initialize the relation of the rooms
 # initialize the dictionary
-r = Room('hello', "world")
-print(type(r) is Room)
+directions = ('n', 's', 'e', 'w',)
+keywords = ('look', 'get', 'help',)
+
 
 p = Player(room['outside'])
 
-parse_text = Parser(p)
+par = Parser(p)
 
-if type(p) is Player:
-    print("Player")
 #
 # Main
 #
@@ -26,9 +25,38 @@ if type(p) is Player:
 
 # Write a loop that:
 
-while parse_text.get_text is not False:
-    command = input(">> ")
-    print(parse_text.get_text(command))
+while par.playing: 
+    command = input(">> ").lower().split()
+    if len(command) == 0:
+        par.error_response()
+    elif len(command) == 1:
+        if command[0] in directions:
+            par.get_text(command[0])
+        elif command[0] in keywords:
+            par.execute_command(command[0])
+    elif command[0] == 'q':
+        par.playing = False
+    else:
+        par.error_response()
+
+    # if len(command) > 2:
+    #     print("don't understand")
+    #     par.error_response()
+    # elif len(command) == 0:
+    #     par.error_response()
+    # elif len(command) == 2:
+    #     if command[0] in directions:
+    #         par.get_text(command[0])
+    #     elif command[0] in keywords:
+    #         par.execute_command(command[0])
+    #     else:
+    #         par.error_response()
+    # elif len(command) == 1:
+    #     par.get_text(command[0])
+    # else:
+    #     par.error_response()
+
+
 
 #
 # * Prints the current room name

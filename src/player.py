@@ -6,8 +6,9 @@ class Player:
         self.room = room
         self.items = []
 
-    def move(direction):
-        pass
+    
+    def get(self):
+        print('getting stuff')
 
 
 
