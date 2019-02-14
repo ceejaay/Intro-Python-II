@@ -26,7 +26,7 @@ class Player:
                 self.room.list_of_items.append(items[item_name])
                 self.items.remove(items[item_name])
             else:
-                print(f"You dono't have {item_name} in your inventory")
+                print(f"You don't have {item_name} in your inventory")
 
 
 

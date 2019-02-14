@@ -30,6 +30,8 @@ par = Parser(p)
 
 # Write a loop that:
 
+print("Welcome to the house of ghost people!")
+print(f"{p.room.location} {p.room.desc}")
 while par.playing: 
     command = input(">> ").lower().split()
     if len(command) == 0:

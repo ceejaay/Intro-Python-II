@@ -25,6 +25,13 @@ class Parser:
                 # else:
                 #     print(f"There is no {second_word} here.")
         elif first_word == 'drop':
+            for item  in self.player.items:
+                if item.name == second_word:
+                    item.on_drop()
+                    self.player.drop(second_word)
+
+                else:
+                    print(f"You don't have {second_word} in your inventory.")
         else:
             self.error_response()
 
@@ -76,6 +83,8 @@ class Parser:
                     print(f"You see a {item.name}")
         elif text == 'get':
             print('What do you want to get? \n Use look to look around')
+        elif text == 'drop':
+            print('What do you want to drop? \n Use i to look at your inventory')
         elif text == 'i':
             print("here's a list of your items:")
             for item in self.player.items:
