@@ -2,12 +2,12 @@
 # currently.
 
 class Player:
-    def __init__(self, location, rooms):
-        self.location = location
-        self.rooms = rooms
+    def __init__(self, room):
+        self.room = room
+        self.items = []
 
     def move(direction):
-
+        pass
 
 
 

@@ -1,24 +1,33 @@
 from data import room
 class Parser:
-    def __init__(self, rm, location):
-        self.rm = rm
-        self.location = location 
+    def __init__(self, player):
+        self.player = player
 
     def error_response(self):
         print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q/q")
-        # return "Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q/q"
+
+    # def check_room(room):
+    #     if type(room) == 'room.Room'
+    #         return True
+    #     else:
+    #         return False
 
     def get_text(self, text):
         if text == 'n' or text == 'N':
-            self.location = self.rm['foyer']
+            print(type(self.player.room.n_to) is room.Room)
+            self.player.room.n_to
+            self.player.room = self.player.room.n_to
+            print(f"You are in {self.player.room.location}, {self.player.room.desc}")
         elif text == 's' or text == 'S':
-            return "south"
+            self.player.room.s_to
+            self.player.room = self.player.room.s_to
+            print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
         elif text == 'w' or text == 'W':
-            return "w"
+            print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
         elif text == 'e' or text == 'E':
-            return "e"
+            print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
         elif text == 'l' or text == 'L':
-            return "l"
+            print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
         elif text == 'q' or text == 'Q':
             return False
         else:
@@ -26,8 +35,3 @@ class Parser:
 
 
 
-p = Parser(room, room['outside'])
-print(p.rm)
-print(p.location)
-print(p.get_text('n'))
-print(p.location)
