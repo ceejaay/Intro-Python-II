@@ -5,6 +5,7 @@ items = {'rope': Item('rope', 'scratchy rope'),
         'key': Item('key', 'possibly to and old toyota'),
         'batteries': Item('batteries', 'If only you had a flashlight to put them in.'),
         'ration': Item('ration', 'They smell bad.'),
+        'stake': Item('stake', 'Run of the mill stake for vampire hunting.'),
 
         }
 
@@ -26,6 +27,7 @@ to north. The smell of gold permeates the air.""", items['ration']),
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.""", items['batteries']),
+    'graveyard': Room("Graveyard", "Mist swirls around you. The gravestones quiver, the dead will burst forth any mooment", items['stake'])
 }
 
 room['outside'].n_to = room['foyer']
@@ -36,6 +38,8 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+room['outside'].e_to = room['graveyard']
+room['graveyard'].w_to = room['outside']
 
 
 
