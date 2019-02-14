@@ -1,11 +1,14 @@
 from room import Room
+from item import Item
+items = {'rope': Item('rope'), 'flashlight': Item('flashlight')}
+
 room = {
 
 
-    'outside':  Room("Outside Cave Entrance", "North of you, the cave mount beckons"),
+    'outside':  Room("Outside Cave Entrance", "North of you, the cave mount beckons", items['rope']),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", items['flashlight']),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in

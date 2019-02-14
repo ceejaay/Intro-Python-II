@@ -67,6 +67,9 @@ class Parser:
                 print("You can't go that way")
         elif text == 'l' or text == 'look':
             print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
+            if len(self.player.room.list_of_items) > 0:
+                for item in self.player.room.list_of_items:
+                    print(f"You see a {item.name}")
         elif text == 'get':
             print('What do you want to get? \n Use look to look around')
         elif text == 'q' or text == 'Q':

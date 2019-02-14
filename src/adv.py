@@ -20,8 +20,8 @@ p = Player(room['outside'])
 
 par = Parser(p)
 
-items = {'rope': Item('rope'), 'flashlight': Item('flashlight')}
-room['foyer'].list_of_items.append(items['rope'])
+# room['foyer'].list_of_items.append(items['rope'])
+
 #
 # Main
 #
