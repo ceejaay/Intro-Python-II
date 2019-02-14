@@ -6,9 +6,12 @@ class Player:
         self.room = room
         self.items = []
 
-    
-    def get(self):
-        print('getting stuff')
+
+    def get(self, item_name):
+        if item_name in self.room.list_of_items:
+            self.items.append(items[item_name])
+            self.room.list_of_items.remove(items[item_name])
+
 
 
 

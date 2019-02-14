@@ -14,9 +14,15 @@ class Parser:
 
 
     def execute_command(self, command):
-        print("you are trying to pick something up.")
-        # if command == 'get':
-        #     self.player.get()
+        first_word = command[0]
+        second_word = command[1]
+        if first_word == 'get':
+            if second_word in self.player.room.list_of_items:
+                player.get(second_word)
+            else:
+                print(f"There is no {second_word} here.")
+        else:
+            self.error_response()
 
     def error_response(self):
         print("Sorry, I don't recognize that. \n Try N, S, E, or W. \n Or if you want to quit type Q")
@@ -59,8 +65,10 @@ class Parser:
                 print(f"You are in {self.player.room.location}, {self.player.room.desc}")
             else:
                 print("You can't go that way")
-        elif text == 'l' or text == 'L':
+        elif text == 'l' or text == 'look':
             print(f"You are in {self.player.room.location}, It {self.player.room.desc}")
+        elif text == 'get':
+            print('What do you want to get? \n Use look to look around')
         elif text == 'q' or text == 'Q':
             print('Thanks for playing')
             self.playing = False

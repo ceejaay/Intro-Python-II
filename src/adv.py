@@ -1,6 +1,7 @@
 from room import Room
 from player import Player
 from parser import Parser
+from item import Item
 from data import room
 # Declare all the rooms
 
@@ -9,14 +10,18 @@ from data import room
 # intitialize the items in rooms
 # initialize the relation of the rooms
 # initialize the dictionary
+
+# add v or view to the keywords
 directions = ('n', 's', 'e', 'w',)
-keywords = ('look', 'get', 'help',)
+keywords = ('look', 'get', 'help', 'l',)
 
 
 p = Player(room['outside'])
 
 par = Parser(p)
 
+items = {'rope': Item('rope'), 'flashlight': Item('flashlight')}
+room['foyer'].list_of_items.append(items['rope'])
 #
 # Main
 #
@@ -30,14 +35,28 @@ while par.playing:
     if len(command) == 0:
         par.error_response()
     elif len(command) == 1:
-        if command[0] in directions:
+        if command[0] in directions or command[0] in keywords:
             par.get_text(command[0])
-        elif command[0] in keywords:
-            par.execute_command(command[0])
-    elif command[0] == 'q':
-        par.playing = False
-    else:
+        elif command[0] == 'q':
+            par.playing = False
+    elif len(command) == 2:
+        if command[0] in keywords:
+            par.execute_command(command)
+        else:
+            par.error_response()
+    elif len(command) > 3:
         par.error_response()
+    # if len(command) == 0:
+    #     par.error_response()
+    # elif len(command) == 1:
+    #     if command[0] in directions:
+    #         par.get_text(command[0])
+    #     elif command[0] in keywords:
+    #         par.execute_command(command[0])
+    #     elif command[0] == 'q':
+    #         par.playing = False
+    # else:
+    #     par.error_response()
 
     # if len(command) > 2:
     #     print("don't understand")
