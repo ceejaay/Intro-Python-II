@@ -13,7 +13,7 @@ from data import room
 
 # add v or view to the keywords
 directions = ('n', 's', 'e', 'w',)
-keywords = ('look', 'get', 'help', 'l',)
+keywords = ('look', 'get', 'help', 'l', 'i', 'drop',)
 
 
 p = Player(room['outside'])

@@ -24,6 +24,7 @@ class Parser:
                 #    self.player.get(second_word)
                 # else:
                 #     print(f"There is no {second_word} here.")
+        elif first_word == 'drop':
         else:
             self.error_response()
 
@@ -75,6 +76,11 @@ class Parser:
                     print(f"You see a {item.name}")
         elif text == 'get':
             print('What do you want to get? \n Use look to look around')
+        elif text == 'i':
+            print("here's a list of your items:")
+            for item in self.player.items:
+                print(f"{item.name}, {item.desc}")
+
         elif text == 'q' or text == 'Q':
             print('Thanks for playing')
             self.playing = False
